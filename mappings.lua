@@ -30,4 +30,26 @@ M.telescope = {
   },
 }
 
+M.lspconfig = {
+  plugin = true,
+
+  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
+
+  n = {
+    ["<C-S-p>"] = {
+      function()
+        vim.diagnostic.goto_prev()
+      end,
+      "goto prev",
+    },
+
+    ["<C-S-n>"] = {
+      function()
+        vim.diagnostic.goto_next()
+      end,
+      "goto_next",
+    },
+  },
+}
+
 return M
