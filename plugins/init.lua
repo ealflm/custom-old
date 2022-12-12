@@ -46,6 +46,10 @@ return {
     override_options = overrides.nvchad_ui,
   },
 
+  ["NvChad/nvterm"] = {
+    override_options = overrides.nvterm,
+  },
+
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
 }
