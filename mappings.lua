@@ -8,7 +8,7 @@ M.nvimtree = {
     ["<C-n>"] = { "", ""},
 
     -- focus
-    ["<C-e>"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
+    ["<C-e>"] = { "<cmd> NvimTreeFindFile <CR>", "jump to current file in nvimtree" },
   },
 }
 

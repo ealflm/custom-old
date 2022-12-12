@@ -22,6 +22,7 @@ return {
   },
 
   ["kyazdani42/nvim-tree.lua"] = {
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
     override_options = overrides.nvimtree,
   },
 

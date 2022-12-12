@@ -26,7 +26,6 @@ M.mason = {
   },
 }
 
--- git support in nvimtree
 M.nvimtree = {
   git = {
     enable = true,
@@ -37,6 +36,16 @@ M.nvimtree = {
     icons = {
       show = {
         git = true,
+      },
+    },
+  },
+
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "<C-e>", action = nil },
+        { key = "<M-e>", action = "edit_in_place" },
       },
     },
   },
