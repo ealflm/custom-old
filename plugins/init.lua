@@ -26,6 +26,22 @@ return {
     override_options = overrides.nvimtree,
   },
 
+  -- Install a plugin
+  ["max397574/better-escape.nvim"] = {
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+
+  -- code formatting, linting etc
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.null-ls"
+    end,
+  },
+
   ["NvChad/ui"] = {
     override_options = overrides.nvchad_ui,
   },

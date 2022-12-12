@@ -2,8 +2,8 @@ require "custom.options"
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({"VimEnter"}, {
+autocmd({"BufWritePre * dart"}, {
   callback = function()
-    -- vim.keymap.del('n', '<Esc>')
+    vim.lsp.buf.format { async = true }
   end, 
 })

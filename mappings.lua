@@ -50,6 +50,13 @@ M.lspconfig = {
       "goto_next",
     },
 
+    ["<C-CR>"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "lsp code_action",
+    },
+
     ["gd"] = {
       function()
         vim.cmd "Telescope lsp_definitions"
