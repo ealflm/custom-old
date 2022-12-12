@@ -34,6 +34,11 @@ return {
     override_options = overrides.nvterm,
   },
 
-  -- remove plugin
-  -- ["hrsh7th/cmp-path"] = false,
+  ["tpope/vim-surround"] = {},
+
+  ["nvim-telescope/telescope-ui-select.nvim"] = {},
+
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = overrides.telescope,
+  },
 }

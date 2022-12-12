@@ -35,10 +35,6 @@ M.telescope = {
 }
 
 M.lspconfig = {
-  plugin = true,
-
-  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-
   n = {
     ["<C-S-p>"] = {
       function()
@@ -53,6 +49,35 @@ M.lspconfig = {
       end,
       "goto_next",
     },
+
+    ["gd"] = {
+      function()
+        vim.cmd "Telescope lsp_definitions"
+      end,
+      "lsp definition",
+    },
+
+    ["gi"] = {
+      function()
+        vim.cmd "Telescope implementations"
+      end,
+      "lsp implementation",
+    },
+
+    ["<leader>D"] = {
+      function()
+        vim.cmd "Telescope lsp_type_definitions"
+      end,
+      "lsp definition type",
+    },
+
+    ["gr"] = {
+      function()
+        vim.cmd "Telescope lsp_references"
+      end,
+      "lsp references",
+    },
+
   },
 }
 
