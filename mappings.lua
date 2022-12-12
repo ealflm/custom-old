@@ -1,11 +1,18 @@
 local M = {}
 
+-- add this table only when you want to disable default keys
+M.disabled = {
+  n = {
+      ["<TAB>"] = "",
+      ["<S-Tab>"] = "",
+      ["<C-n>"] = "",
+  }
+}
+
 M.nvimtree = {
   n = {
     -- toggle
     ["<C-q>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-    -- toggle
-    ["<C-n>"] = { "", ""},
 
     -- focus
     ["<C-e>"] = { "<cmd> NvimTreeFindFile <CR>", "jump to current file in nvimtree" },
