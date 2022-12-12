@@ -1,11 +1,24 @@
 local M = {}
 
-M.general = {
+M.nvimtree = {
   n = {
-    -- [";"] = { ":", "command mode", opts = { nowait = true } },
+    -- toggle
+    ["<C-q>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+
+    -- focus
+    ["<C-e>"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
   },
 }
 
--- more keybinds!
+M.telescope = {
+  n = {
+    -- find
+    ["<C-space>"] = { "<cmd> Telescope find_files <CR>", "find files" },
+    ["<C-h"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+
+    -- git
+    ["<C-;>"] = { "<cmd> Telescope git_status <CR>", "git status" },
+  },
+}
 
 return M
