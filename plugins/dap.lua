@@ -1,4 +1,9 @@
-local dap = require('dap')
+local present, dap = pcall(require, "dap")
+
+if not present then
+  return
+end
+
 
 -- Config for dart language
 dap.adapters.dart = {

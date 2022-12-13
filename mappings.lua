@@ -253,6 +253,55 @@ M.dap = {
     },
 
   },
+
+  v = {
+    ["gs"] = {
+      function()
+        vim.schedule(function()
+          require("dap").eval()
+        end)
+      end,
+      "Dap: watch value at popup",
+      opts = { expr = true },
+    },
+  }
+}
+
+M.dapui = {
+  plugin = true,
+
+  n = {
+    -- Open REPL
+    ["<C-m>"] = {
+      function()
+        vim.schedule(function()
+          require'dapui'.toggle({layout = 2})
+        end)
+      end,
+      "Dap UI: open REPL at bottom",
+    },
+
+    -- Open REPL
+    ["<C-'>"] = {
+      function()
+        vim.schedule(function()
+          require'dapui'.toggle({layout = 1})
+        end)
+      end,
+      "Dap UI: open debug inspect",
+    },
+
+    -- Open all dap ui with reset
+    ["<C-\">"] = {
+      function()
+        vim.schedule(function()
+          require'dapui'.open({reset = true})
+        end)
+      end,
+      "Dap UI: Open dap ui with reset",
+    },
+
+  },
 }
 
 return M

@@ -65,5 +65,14 @@ return {
     setup = function()
       require("core.utils").load_mappings "dap"
     end,
+  },
+
+  ["rcarriga/nvim-dap-ui"] = {
+    config = function()
+      require "custom.plugins.dapui"
+    end,
+    setup = function()
+      require("core.utils").load_mappings "dapui"
+    end,
   }
 }
