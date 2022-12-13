@@ -14,6 +14,12 @@ M.disabled = {
   }
 }
 
+M.git = {
+  n = {
+    ["<Leader>cd"] = {":cd %:h | cd `git rev-parse --show-toplevel`<CR>", "Cd to git root"}
+  }
+}
+
 M.tabufline = {
   plugin = true,
 
