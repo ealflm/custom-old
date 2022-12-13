@@ -302,7 +302,7 @@ M.dapui = {
 
   n = {
     -- Open REPL
-    ["<C-m>"] = {
+    ["<A-m>"] = {
       function()
         vim.schedule(function()
           require'dapui'.toggle({layout = 2})
