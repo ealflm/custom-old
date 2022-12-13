@@ -50,15 +50,31 @@ return {
     override_options = overrides.nvterm,
   },
 
-  ["tpope/vim-surround"] = {},
+  ["tpope/vim-surround"] = {
+    keys = {
+      "ds",
+      "cs",
+      "cS",
+      "ys",
+      "yS",
+      "yss",
+      "ySs",
+      "ySS",
+      "S",
+      "gS",
+    },
+  },
 
-  ["nvim-telescope/telescope-ui-select.nvim"] = {},
+  ["nvim-telescope/telescope-ui-select.nvim"] = {
+    cmd = "Telescope",
+  },
 
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
   },
 
   ["ealflm/nvim-dap"] = {
+    ft = { "dart" },
     config = function()
       require "custom.plugins.dap"
     end,
@@ -68,6 +84,7 @@ return {
   },
 
   ["rcarriga/nvim-dap-ui"] = {
+    ft = { "dart" },
     config = function()
       require "custom.plugins.dapui"
     end,
