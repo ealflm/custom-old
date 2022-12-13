@@ -85,7 +85,21 @@ M.nvterm = {
 }
 
 M.telescope = {
-  extensions_list = { "ui-select" },
+  extensions = {
+    repo = {
+      list = {
+        fd_opts = {
+          "--no-ignore-vcs",
+        },
+        search_dirs = {
+          "~/Desktop",
+          "~/Downloads",
+          "~/Documents",
+        },
+      },
+    },
+  },
+  extensions_list = { "ui-select", "telescope-repo" },
 }
 
 return M

@@ -69,6 +69,11 @@ return {
     cmd = "Telescope",
   },
 
+  ["cljoly/telescope-repo.nvim"] = {
+    cmd = "Telescope",
+  },
+
+
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
   },
@@ -91,5 +96,6 @@ return {
     setup = function()
       require("core.utils").load_mappings "dapui"
     end,
-  }
+  },
+
 }

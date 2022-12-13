@@ -3,14 +3,14 @@ local M = {}
 -- add this table only when you want to disable default keys
 M.disabled = {
   n = {
-      ["<TAB>"] = "",
-      ["<S-Tab>"] = "",
-      ["<C-n>"] = "",
-      ["<C-s>"] = "",
-      ["[c"] = "",
-      ["]c"] = "",
-      ["[d"] = "",
-      ["d]"] = "",
+    ["<TAB>"] = "",
+    ["<S-Tab>"] = "",
+    ["<C-n>"] = "",
+    ["<C-s>"] = "",
+    ["[c"] = "",
+    ["]c"] = "",
+    ["[d"] = "",
+    ["d]"] = "",
   }
 }
 
@@ -65,6 +65,7 @@ M.telescope = {
 
     -- git
     ["<C-;>"] = { "<cmd> Telescope git_status <CR>", "git status" },
+    ["<Leader>rp"] = { ":Telescope repo list<CR>", "open all repository in system" },
   },
 }
 
@@ -305,7 +306,7 @@ M.dapui = {
     ["<A-m>"] = {
       function()
         vim.schedule(function()
-          require'dapui'.toggle({layout = 2})
+          require 'dapui'.toggle({ layout = 2 })
         end)
       end,
       "Dap UI: open REPL at bottom",
@@ -315,7 +316,7 @@ M.dapui = {
     ["<C-'>"] = {
       function()
         vim.schedule(function()
-          require'dapui'.toggle({layout = 1})
+          require 'dapui'.toggle({ layout = 1 })
         end)
       end,
       "Dap UI: open debug inspect",
@@ -325,7 +326,7 @@ M.dapui = {
     ["<C-\">"] = {
       function()
         vim.schedule(function()
-          require'dapui'.open({reset = true})
+          require 'dapui'.open({ reset = true })
         end)
       end,
       "Dap UI: Open dap ui with reset",
