@@ -49,6 +49,10 @@ M.nvimtree = {
       },
     },
   },
+
+  update_focused_file = {
+    enable = false,
+  },
 }
 
 M.nvchad_ui = {
