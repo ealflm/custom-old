@@ -14,6 +14,8 @@ M.disabled = {
 }
 
 M.nvimtree = {
+  plugin = true,
+
   n = {
     -- toggle
     ["<C-q>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
@@ -24,6 +26,8 @@ M.nvimtree = {
 }
 
 M.telescope = {
+  plugin = true,
+
   n = {
     -- find
     ["<C-space>"] = { "<cmd> Telescope find_files <CR>", "find files" },
@@ -35,6 +39,8 @@ M.telescope = {
 }
 
 M.lspconfig = {
+  plugin = true,
+
   n = {
     ["<C-S-p>"] = {
       function()
@@ -89,6 +95,8 @@ M.lspconfig = {
 }
 
 M.gitsigns = {
+  plugin = true,
+
   n = {
     -- Navigation through hunks
     ["<A-n>"] = {
@@ -118,6 +126,132 @@ M.gitsigns = {
       "Jump to prev hunk",
       opts = { expr = true },
     },
+  },
+}
+
+M.dap = {
+  plugin = true,
+
+  n = {
+    -- Continue
+    ["<F5>"] = {
+      function()
+        vim.schedule(function()
+          print "Running the app..."
+          require("dap").continue()
+        end)
+      end,
+      "Dap: continue",
+      opts = { expr = true },
+    },
+
+    -- Step over
+    ["<F8>"] = {
+      function()
+        vim.schedule(function()
+          print "Step over..."
+          require("dap").step_over()
+        end)
+      end,
+      "Dap: step over",
+      opts = { expr = true },
+    },
+
+    -- Step in
+    ["<F9>"] = {
+      function()
+        vim.schedule(function()
+          print "Step in"
+          require("dap").step_into()
+        end)
+      end,
+      "Dap: step in",
+      opts = { expr = true },
+    },
+
+    -- Step out
+    ["<F10>"] = {
+      function()
+        vim.schedule(function()
+          print "Step out"
+          require("dap").step_out()
+        end)
+      end,
+      "Dap: step out",
+      opts = { expr = true },
+    },
+
+    -- Toggle breakpoint
+    ["<F7>"] = {
+      function()
+        vim.schedule(function()
+          print "Breakpoint toggled"
+          require("dap").toggle_breakpoint()
+        end)
+      end,
+      "Dap: toggle breakpoint",
+      opts = { expr = true },
+    },
+
+    -- Set breakpoint with condition
+    ["<S-F7>"] = {
+      function()
+        vim.schedule(function()
+          print "Breakpoint set with condition"
+          require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
+        end)
+      end,
+      "Dap: set breakpoint",
+      opts = { expr = true },
+    },
+
+    -- Terminate app
+    ["<Leader>te"] = {
+      function()
+        vim.schedule(function()
+          print "App terminated"
+          require("dap").terminate()
+        end)
+      end,
+      "Dap: terminate",
+      opts = { expr = true },
+    },
+
+    -- Set exception breakpoint
+    ["<Leader>ex"] = {
+      function()
+        vim.schedule(function()
+          print "Set exception breakpoints"
+          require("dap").set_exception_breakpoints()
+        end)
+      end,
+      "Dap: set exception breakpoints",
+      opts = { expr = true },
+    },
+
+    -- REPL open
+    ["<Leader>dr"] = {
+      function()
+        print "Opening REPL"
+        vim.schedule(function()
+          require("dap").repl.open()
+        end)
+      end,
+      "Dap: REPL open",
+      opts = { expr = true },
+    },
+
+    -- Watch value at popup
+    ["gs"] = {
+      function()
+        vim.schedule(function()
+          require("dap").eval()
+        end)
+      end,
+      "Dap: watch value at popup",
+      opts = { expr = true },
+    },
+
   },
 }
 

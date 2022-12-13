@@ -57,4 +57,13 @@ return {
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
   },
+
+  ["ealflm/nvim-dap"] = {
+    config = function()
+      require "custom.plugins.dap"
+    end,
+    setup = function()
+      require("core.utils").load_mappings "dap"
+    end,
+  }
 }
