@@ -6,11 +6,41 @@ M.disabled = {
       ["<TAB>"] = "",
       ["<S-Tab>"] = "",
       ["<C-n>"] = "",
+      ["<C-s>"] = "",
       ["[c"] = "",
       ["]c"] = "",
       ["[d"] = "",
       ["d]"] = "",
   }
+}
+
+M.tabufline = {
+  plugin = true,
+
+  n = {
+    -- cycle through buffers
+    ["<C-s>"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflineNext()
+      end,
+      "goto next buffer",
+    },
+
+    ["<C-a>"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflinePrev()
+      end,
+      "goto prev buffer",
+    },
+
+    -- close buffer + hide terminal buffer
+    ["<C-d>"] = {
+      function()
+        require("nvchad_ui.tabufline").close_buffer()
+      end,
+      "close buffer",
+    },
+  },
 }
 
 M.nvimtree = {
