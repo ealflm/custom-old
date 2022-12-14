@@ -29,10 +29,10 @@ M.mason = {
 M.nvimtree = {
   diagnostics = {
     enable = true,
-    show_on_dirs = false,
+    show_on_dirs = true,
     debounce_delay = 50,
     severity = {
-      min = vim.diagnostic.severity.HINT,
+      min = vim.diagnostic.severity.ERROR,
       max = vim.diagnostic.severity.ERROR
     },
     icons = {
