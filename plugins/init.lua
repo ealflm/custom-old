@@ -2,8 +2,6 @@ local overrides = require "custom.plugins.overrides"
 
 return {
 
-  -- ["goolord/alpha-nvim"] = { disable = false } -- enables dashboard
-
   -- Override plugin definition options
   ["neovim/nvim-lspconfig"] = {
     config = function()
