@@ -5,6 +5,7 @@ local g = vim.g
 opt.mouse = ""
 opt.wrap = false
 opt.shell = "fish"
+opt.clipboard = ""
 
 g.neovide_input_macos_alt_is_meta = true
 g.neovide_cursor_vfx_mode = "torpedo"
