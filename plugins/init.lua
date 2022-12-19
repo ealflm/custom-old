@@ -7,93 +7,57 @@ return {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
-    end,
+    end
   },
 
   -- overrde plugin configs
   ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = overrides.treesitter,
+    override_options = overrides.treesitter
   },
 
-  ["williamboman/mason.nvim"] = {
-    override_options = overrides.mason,
-  },
+  ["williamboman/mason.nvim"] = {override_options = overrides.mason},
 
   ["kyazdani42/nvim-tree.lua"] = {
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
-    override_options = overrides.nvimtree,
+    cmd = {"NvimTreeToggle", "NvimTreeFindFile"},
+    override_options = overrides.nvimtree
   },
 
   -- Install a plugin
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
+    config = function() require("better_escape").setup() end
   },
 
   -- code formatting, linting etc
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.null-ls"
-    end,
+    config = function() require "custom.plugins.null-ls" end
   },
 
-  ["NvChad/ui"] = {
-    override_options = overrides.nvchad_ui,
-  },
+  ["NvChad/ui"] = {override_options = overrides.nvchad_ui},
 
-  ["NvChad/nvterm"] = {
-    override_options = overrides.nvterm,
-  },
+  ["NvChad/nvterm"] = {override_options = overrides.nvterm},
 
   ["tpope/vim-surround"] = {
-    keys = {
-      "ds",
-      "cs",
-      "cS",
-      "ys",
-      "yS",
-      "yss",
-      "ySs",
-      "ySS",
-      "S",
-      "gS",
-    },
+    keys = {"ds", "cs", "cS", "ys", "yS", "yss", "ySs", "ySS", "S", "gS"}
   },
 
-  ["nvim-telescope/telescope-ui-select.nvim"] = {
-    cmd = "Telescope",
-  },
+  ["nvim-telescope/telescope-ui-select.nvim"] = {cmd = "Telescope"},
 
-  ["ealflm/telescope-repo.nvim"] = {
-    cmd = "Telescope",
-  },
+  ["ealflm/telescope-repo.nvim"] = {cmd = "Telescope"},
 
-
-  ["nvim-telescope/telescope.nvim"] = {
-    override_options = overrides.telescope,
-  },
+  ["nvim-telescope/telescope.nvim"] = {override_options = overrides.telescope},
 
   ["ealflm/nvim-dap"] = {
-    ft = { "dart" },
-    config = function()
-      require "custom.plugins.dap"
-    end,
-    setup = function()
-      require("core.utils").load_mappings "dap"
-    end,
+    ft = {"dart"},
+    config = function() require "custom.plugins.dap" end,
+    setup = function() require("core.utils").load_mappings "dap" end
   },
 
   ["rcarriga/nvim-dap-ui"] = {
-    ft = { "dart" },
-    config = function()
-      require "custom.plugins.dapui"
-    end,
-    setup = function()
-      require("core.utils").load_mappings "dapui"
-    end,
-  },
+    ft = {"dart"},
+    config = function() require "custom.plugins.dapui" end,
+    setup = function() require("core.utils").load_mappings "dapui" end
+  }
 
 }
