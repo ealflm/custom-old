@@ -290,7 +290,7 @@ M.dapui = {
 
     n = {
         -- Open REPL
-        ["<A-m>"] = {
+        ["<C-'>"] = {
             function()
                 vim.schedule(function()
                     require'dapui'.toggle({layout = 2})
@@ -299,7 +299,7 @@ M.dapui = {
         },
 
         -- Open REPL
-        ["<C-'>"] = {
+        ["<C-\">"] = {
             function()
                 vim.schedule(function()
                     require'dapui'.toggle({layout = 1})
@@ -308,7 +308,7 @@ M.dapui = {
         },
 
         -- Open all dap ui with reset
-        ["<C-\">"] = {
+        ["<M-m>"] = {
             function()
                 vim.schedule(function()
                     require'dapui'.open({reset = true})
