@@ -10,8 +10,12 @@ M.disabled = {
     ["[c"] = "",
     ["]c"] = "",
     ["[d"] = "",
-    ["d]"] = ""
-  }
+    ["d]"] = "",
+    ["<A-i>"] = "",
+    ["<A-h>"] = "",
+    ["<A-v>"] = ""
+  },
+  t = {["<A-i>"] = "", ["<A-h>"] = "", ["<A-v>"] = ""}
 }
 
 M.git = {
@@ -49,7 +53,7 @@ M.tabufline = {
     },
 
     -- close buffer + hide terminal buffer
-    ["<C-Q>"] = {
+    ["<C-S-Q>"] = {
       function() require("nvchad_ui.tabufline").close_buffer() end,
       "close buffer"
     }
@@ -296,6 +300,46 @@ M.dapui = {
       end, "Dap UI: Open dap ui with reset"
     }
 
+  }
+}
+
+M.nvterm = {
+  plugin = true,
+
+  t = {
+    -- toggle in terminal mode
+    ["<C-S-i>"] = {
+      function() require("nvterm.terminal").toggle "float" end,
+      "toggle floating term"
+    },
+
+    ["<C-S-h>"] = {
+      function() require("nvterm.terminal").toggle "horizontal" end,
+      "toggle horizontal term"
+    },
+
+    ["<C-S-v>"] = {
+      function() require("nvterm.terminal").toggle "vertical" end,
+      "toggle vertical term"
+    }
+  },
+
+  n = {
+    -- toggle in normal mode
+    ["<C-S-i>"] = {
+      function() require("nvterm.terminal").toggle "float" end,
+      "toggle floating term"
+    },
+
+    ["<C-S-h>"] = {
+      function() require("nvterm.terminal").toggle "horizontal" end,
+      "toggle horizontal term"
+    },
+
+    ["<C-S-v>"] = {
+      function() require("nvterm.terminal").toggle "vertical" end,
+      "toggle vertical term"
+    }
   }
 }
 
