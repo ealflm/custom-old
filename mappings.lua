@@ -49,7 +49,7 @@ M.tabufline = {
     },
 
     -- close buffer + hide terminal buffer
-    ["<C-w>"] = {
+    ["<C-Q>"] = {
       function() require("nvchad_ui.tabufline").close_buffer() end,
       "close buffer"
     }
