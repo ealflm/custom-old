@@ -67,7 +67,7 @@ return {
     cmd = "Telescope",
   },
 
-  ["cljoly/telescope-repo.nvim"] = {
+  ["ealflm/telescope-repo.nvim"] = {
     cmd = "Telescope",
   },
 
