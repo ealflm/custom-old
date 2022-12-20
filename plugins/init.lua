@@ -58,6 +58,10 @@ return {
     ft = {"dart"},
     config = function() require "custom.plugins.dapui" end,
     setup = function() require("core.utils").load_mappings "dapui" end
+  },
+
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    override_options = overrides.blankline
   }
 
 }
