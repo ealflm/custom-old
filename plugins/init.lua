@@ -38,9 +38,7 @@ return {
 
   ["NvChad/nvterm"] = {override_options = overrides.nvterm},
 
-  ["tpope/vim-surround"] = {
-    keys = {"ds", "cs", "cS", "ys", "yS", "yss", "ySs", "ySS", "S", "gS"}
-  },
+  ["ealflm/vim-surround"] = {},
 
   ["nvim-telescope/telescope-ui-select.nvim"] = {cmd = "Telescope"},
 

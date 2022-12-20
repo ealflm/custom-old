@@ -15,6 +15,12 @@ vim.cmd [[
   cnoremap <C-n> <Down>
 ]]
 
+-- Close all buffers except current one
+vim.cmd [[
+  command! BufCurOnly execute '%bdelete|edit#|bdelete#'
+  nnoremap <C-S-W> :BufCurOnly<CR>
+]]
+
 -- Select in indentation
 vim.cmd [[
   function! s:inIndentation()
