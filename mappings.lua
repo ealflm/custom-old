@@ -370,4 +370,18 @@ M.nvterm = {
   }
 }
 
+M.bookmarks = {
+  plugin = true,
+
+  n = {
+    ["<Leader>as"] = {"<Plug>BookmarkToggle", "bookmarks toggle"},
+    ["<Leader>ap"] = {"<Plug>BookmarkPrev", "bookmarks previous"},
+    ["<Leader>an"] = {"<Plug>BookmarkNext", "bookmarks next"},
+    ["<Leader>ac"] = {
+      "<Plug>BookmarkClear", "bookmarks clear in current buffer only"
+    },
+    ["<Leader>ak"] = {"<Plug>BookmarkClearAll", "bookmarks clear all"}
+  }
+}
+
 return M
