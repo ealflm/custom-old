@@ -67,11 +67,6 @@ return {
       "<Leader>ds", "<Leader>cs", "<Leader>cS", "<Leader>ys", "<Leader>yS",
       "<Leader>yss", "<Leader>ySs", "<Leader>ySS", "<Leader>S", "<Leader>gS"
     }
-  },
-
-  ["MattesGroeger/vim-bookmarks"] = {
-    config = function() require "custom.plugins.bookmarks" end,
-    setup = function() require("core.utils").load_mappings "bookmarks" end
   }
 
 }
