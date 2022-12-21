@@ -42,18 +42,18 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<C-s>"] = {
+    ["<C-]>"] = {
       function() require("nvchad_ui.tabufline").tabuflineNext() end,
       "goto next buffer"
     },
 
-    ["<C-a>"] = {
+    ["<C-[>"] = {
       function() require("nvchad_ui.tabufline").tabuflinePrev() end,
       "goto prev buffer"
     },
 
     -- close buffer + hide terminal buffer
-    ["<C-S-Q>"] = {
+    ["<C-s>"] = {
       function() require("nvchad_ui.tabufline").close_buffer() end,
       "close buffer"
     }
@@ -65,7 +65,7 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<S-tab>"] = {"<cmd> NvimTreeToggle <CR>", "toggle nvimtree"},
+    ["<C-tab>"] = {"<cmd> NvimTreeToggle <CR>", "toggle nvimtree"},
 
     -- focus
     ["<C-e>"] = {
@@ -79,14 +79,18 @@ M.telescope = {
 
   n = {
     -- find
-    ["<C-space>"] = {"<cmd> Telescope find_files <CR>", "find files"},
-    ["<C-h"] = {"<cmd> Telescope live_grep <CR>", "live grep"},
+    ["<C-space>"] = {"<cmd> Telescope find_files<CR>", "find files"},
+    ["<C-h"] = {"<cmd> Telescope live_grep<CR>", "live grep"},
 
     -- git
-    ["<C-;>"] = {"<cmd> Telescope git_status <CR>", "git status"},
+    ["<C-;>"] = {"<cmd> Telescope git_status<CR>", "git status"},
+    ["<Leader>sh"] = {"<cmd> Telescope git_stash<CR>", "git stash"},
+    ["<Leader>rh"] = {"<cmd> Telescope git_branches<CR>", "git branches"},
     ["<Leader>rp"] = {
       ":Telescope repo list<CR>", "open all repository in system"
-    }
+    },
+    ["<Leader>dn"] = {":Telescope diagnostics<CR>", "open diagnostics"},
+    ["<Leader>rs"] = {":Telescope resume<CR>", "Resume last telescope command"}
   }
 }
 
@@ -105,7 +109,8 @@ M.lspconfig = {
     },
 
     ["gi"] = {
-      function() vim.cmd "Telescope implementations" end, "lsp implementation"
+      function() vim.cmd "Telescope lsp_implementations" end,
+      "lsp implementation"
     },
 
     ["<leader>D"] = {
@@ -199,6 +204,18 @@ M.dap = {
       opts = {expr = true}
     },
 
+    -- Hot restart
+    ["<F6>"] = {
+      function()
+        vim.schedule(function()
+          print "Hot restart"
+          require("dap").hot_restart()
+        end)
+      end,
+      "Dap: hot restart",
+      opts = {expr = true}
+    },
+
     -- Toggle breakpoint
     ["<F7>"] = {
       function()
@@ -255,24 +272,10 @@ M.dap = {
       end,
       "Dap: REPL open",
       opts = {expr = true}
-    },
-
-    -- Watch value at popup
-    ["gs"] = {
-      function() vim.schedule(function() require("dap").eval() end) end,
-      "Dap: watch value at popup",
-      opts = {expr = true}
     }
 
-  },
-
-  v = {
-    ["gs"] = {
-      function() vim.schedule(function() require("dap").eval() end) end,
-      "Dap: watch value at popup",
-      opts = {expr = true}
-    }
   }
+
 }
 
 M.dapui = {
@@ -298,6 +301,20 @@ M.dapui = {
       function()
         vim.schedule(function() require'dapui'.open({reset = true}) end)
       end, "Dap UI: Open dap ui with reset"
+    },
+
+    -- Watch value at popup
+    ["gs"] = {
+      function() vim.schedule(function() require("dapui").eval() end) end,
+      "Dap: watch value at popup"
+    }
+
+  },
+
+  v = {
+    ["gs"] = {
+      function() vim.schedule(function() require("dapui").eval() end) end,
+      "Dap: watch value at popup"
     }
 
   }

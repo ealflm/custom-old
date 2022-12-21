@@ -41,7 +41,10 @@ M.nvimtree = {
       }
     }
   },
-  actions = {change_dir = {enable = true, global = true}},
+  actions = {
+    use_system_clipboard = true,
+    change_dir = {enable = true, global = true}
+  },
   view = {
     adaptive_size = true,
     mappings = {
