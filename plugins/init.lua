@@ -38,8 +38,6 @@ return {
 
   ["NvChad/nvterm"] = {override_options = overrides.nvterm},
 
-  ["ealflm/vim-surround"] = {},
-
   ["nvim-telescope/telescope-ui-select.nvim"] = {cmd = "Telescope"},
 
   ["ealflm/telescope-repo.nvim"] = {cmd = "Telescope"},
@@ -60,6 +58,15 @@ return {
 
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = overrides.blankline
+  },
+
+  ["ealflm/nvindent"] = {keys = {"ai", "ii"}},
+
+  ["ealflm/vim-surround"] = {
+    keys = {
+      "<Leader>ds", "<Leader>cs", "<Leader>cS", "<Leader>ys", "<Leader>yS",
+      "<Leader>yss", "<Leader>ySs", "<Leader>ySS", "<Leader>S", "<Leader>gS"
+    }
   }
 
 }
