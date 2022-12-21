@@ -30,6 +30,23 @@ M.vimrc = {
   n = {
     ["<Leader>cf"] = {
       function()
+        -- Check if current buf is no name buf
+        local function should_hijack_current_buf()
+          local bufnr = vim.api.nvim_get_current_buf()
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          local bufmodified = vim.api.nvim_buf_get_option(bufnr, "modified")
+          local ft = vim.api.nvim_buf_get_option(bufnr, "ft")
+
+          local should_hijack_unnamed =
+              bufname == "" and not bufmodified and ft == ""
+
+          return should_hijack_unnamed
+        end
+
+        if should_hijack_current_buf() then
+          require("nvchad_ui.tabufline").close_buffer()
+        end
+
         vim.cmd "e $MYVIMRC"
         vim.cmd "cd %:h | cd `git rev-parse --show-toplevel`"
       end, "open MYVIMRC"
@@ -55,6 +72,12 @@ M.tabufline = {
     -- close buffer + hide terminal buffer
     ["<C-s>"] = {
       function() require("nvchad_ui.tabufline").close_buffer() end,
+      "close buffer"
+    },
+
+    -- close all buffers
+    ["<C-S-s>"] = {
+      function() require("nvchad_ui.tabufline").closeAllBufs() end,
       "close buffer"
     }
   }
