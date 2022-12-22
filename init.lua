@@ -9,7 +9,10 @@ autocmd({"FocusGained"}, {pattern = {"*.*"}, command = "checktime"})
 
 autocmd({"BufEnter"}, {
   pattern = {"*.*"},
-  callback = function() require('nvimbuffers').close_noname_buffer() end
+  callback = function()
+    require('nvimbuffers').close_noname_buffer()
+    require('nvimbuffers').close_workspace_md()
+  end
 })
 
 -- Mapping <C-n>, <C-p> with up and down to get feature of up and down
