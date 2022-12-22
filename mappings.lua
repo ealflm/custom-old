@@ -22,13 +22,17 @@ M.disabled = {
 M.workspace = {
   n = {
     ["<C-S-e>"] = {
-      function() vim.cmd("e ~/.workspace.md") end, "open global workspace file"
+      function()
+        vim.cmd("e ~/.workspace.md")
+        require("nvimbuffers").move_to_first()
+      end, "open global workspace file"
     },
     ["<C-S-m>"] = {
       function()
         local dir = vim.fn.expand("`git rev-parse --show-toplevel`") ..
                         ".workspace.md"
         vim.cmd("e " .. dir)
+        require("nvimbuffers").move_to_first()
       end, "open local workspace file"
     }
   }
