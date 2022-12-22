@@ -13,9 +13,25 @@ M.disabled = {
     ["d]"] = "",
     ["<A-i>"] = "",
     ["<A-h>"] = "",
-    ["<A-v>"] = ""
+    ["<A-v>"] = "",
+    ["<Leader>fw"] = ""
   },
   t = {["<A-i>"] = "", ["<A-h>"] = "", ["<A-v>"] = ""}
+}
+
+M.workspace = {
+  n = {
+    ["<C-S-e>"] = {
+      function() vim.cmd("e ~/.workspace.md") end, "open global workspace file"
+    },
+    ["<C-S-m>"] = {
+      function()
+        local dir = vim.fn.expand("`git rev-parse --show-toplevel`") ..
+                        ".workspace.md"
+        vim.cmd("e " .. dir)
+      end, "open local workspace file"
+    }
+  }
 }
 
 M.git = {
@@ -28,7 +44,7 @@ M.git = {
 
 M.vimrc = {
   n = {
-    ["<Leader>cf"] = {
+    ["<C-`>"] = {
       function()
         if require("custom.lib").should_hijack_current_buf() then
           require("nvchad_ui.tabufline").close_buffer()
@@ -99,15 +115,13 @@ M.telescope = {
   n = {
     -- find
     ["<C-space>"] = {"<cmd> Telescope find_files<CR>", "find files"},
-    ["<C-h"] = {"<cmd> Telescope live_grep<CR>", "live grep"},
+    ["<C-S-l>"] = {"<cmd> Telescope live_grep<CR>", "live grep"},
 
     -- git
     ["<C-;>"] = {"<cmd> Telescope git_status<CR>", "git status"},
     ["<Leader>sh"] = {"<cmd> Telescope git_stash<CR>", "git stash"},
     ["<Leader>rh"] = {"<cmd> Telescope git_branches<CR>", "git branches"},
-    ["<Leader>rp"] = {
-      ":Telescope repo list<CR>", "open all repository in system"
-    },
+    ["<C-S-j>"] = {":Telescope repo list<CR>", "open all repository in system"},
     ["<Leader>dn"] = {":Telescope diagnostics<CR>", "open diagnostics"},
     ["<Leader>rs"] = {":Telescope resume<CR>", "Resume last telescope command"}
   }

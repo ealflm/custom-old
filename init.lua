@@ -17,3 +17,19 @@ vim.cmd [[
   cnoremap <C-p> <Up>
   cnoremap <C-n> <Down>
 ]]
+
+-- Mapping <C-p> <C-n> only for *.md filetype
+autocmd({"BufEnter"}, {
+  pattern = {"*.md"},
+  command = "nnoremap <buffer> <C-p> :exe '?^-' <Bar> norm 0W<CR>"
+})
+
+autocmd({"BufEnter"}, {
+  pattern = {"*.md"},
+  command = "nnoremap <buffer> <C-n> :exe '/^-' <Bar> norm 0W<CR>"
+})
+
+autocmd({"BufEnter"}, {
+  pattern = {"*.md"},
+  command = "nnoremap <buffer> <CR> :cd <C-r><C-a><CR>"
+})
