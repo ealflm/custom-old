@@ -35,8 +35,8 @@ M.nvimtree = {
           unmerged = "",
           renamed = "﹡",
           untracked = "⟡",
-          deleted = "",
-          ignored = "□"
+          deleted = "⊝",
+          ignored = ""
         }
       }
     }
