@@ -63,11 +63,19 @@ M.tabufline = {
       "close buffer"
     },
 
-    -- close all buffers
+    -- close all buffers but current
     ["<C-S-s>"] = {
-      function() require("nvchad_ui.tabufline").closeAllBufs() end,
-      "close buffer"
+      function() require("nvimbuffers").only_buffer() end, "close buffer"
+    },
+
+    -- close all buffers
+    ["<C-S-a>"] = {
+      function()
+        require("nvimbuffers").only_buffer()
+        require("nvchad_ui.tabufline").close_buffer()
+      end, "close buffer"
     }
+
   }
 }
 

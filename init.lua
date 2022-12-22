@@ -7,14 +7,13 @@ autocmd({"BufWritePost"},
 
 autocmd({"FocusGained"}, {pattern = {"*.*"}, command = "checktime"})
 
+autocmd({"BufEnter"}, {
+  pattern = {"*.*"},
+  callback = function() require('nvimbuffers').close_noname_buffer() end
+})
+
 -- Mapping <C-n>, <C-p> with up and down to get feature of up and down
 vim.cmd [[
   cnoremap <C-p> <Up>
   cnoremap <C-n> <Down>
-]]
-
--- Close all buffers except current one
-vim.cmd [[
-  command! BufCurOnly execute '%bdelete|edit#|bdelete#'
-  nnoremap <C-S-W> :BufCurOnly<CR>
 ]]

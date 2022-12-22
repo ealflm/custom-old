@@ -73,6 +73,10 @@ return {
 
   ["mhartington/formatter.nvim"] = {
     config = function() require "custom.plugins.formatter" end
+  },
+
+  ["ealflm/nvimbuffers"] = {
+    config = function() require("nvimbuffers").setup() end
   }
 
 }
