@@ -3,6 +3,7 @@ local overrides = require "custom.plugins.overrides"
 return {
 
   -- Override plugin definition options
+
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -68,6 +69,10 @@ return {
       "<Leader>ds", "<Leader>cs", "<Leader>cS", "<Leader>ys", "<Leader>yS",
       "<Leader>yss", "<Leader>ySs", "<Leader>ySS", "<Leader>S", "<Leader>gS"
     }
+  },
+
+  ["mhartington/formatter.nvim"] = {
+    config = function() require "custom.plugins.formatter" end
   }
 
 }

@@ -34,7 +34,8 @@ M.vimrc = {
           require("nvchad_ui.tabufline").close_buffer()
         end
 
-        vim.cmd "e $MYVIMRC"
+        -- vim.cmd "e $MYVIMRC"
+        vim.cmd "e /Users/ealflm/.config/nvim/lua/custom/init.lua"
         vim.cmd "cd %:h | cd `git rev-parse --show-toplevel`"
       end, "open MYVIMRC"
     }
