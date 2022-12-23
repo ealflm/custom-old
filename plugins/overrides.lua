@@ -95,7 +95,7 @@ M.telescope = {
       }
     }
   },
-  extensions_list = {"ui-select", "telescope-repo"}
+  extensions_list = {"themes", "terms", "ui-select", "telescope-repo"}
 }
 
 M.blankline = {show_current_context_start = false}
