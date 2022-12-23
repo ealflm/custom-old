@@ -222,7 +222,7 @@ M.dap = {
     ["<F5>"] = {
       function()
         vim.schedule(function()
-          print "Running the app..."
+          require'dapui'.open({layout = 2})
           require("dap").continue()
         end)
       end,
@@ -303,13 +303,8 @@ M.dap = {
     },
 
     -- Terminate app
-    ["<Leader>te"] = {
-      function()
-        vim.schedule(function()
-          print "App terminated"
-          require("dap").terminate()
-        end)
-      end,
+    ["<S-F5>"] = {
+      function() vim.schedule(function() require("dap").terminate() end) end,
       "Dap: terminate",
       opts = {expr = true}
     },
