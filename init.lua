@@ -7,6 +7,13 @@ autocmd({"BufWritePost"},
 
 autocmd({"FocusGained"}, {pattern = {"*.*"}, command = "checktime"})
 
+-- Mapping <C-n>, <C-p> with up and down to get feature of up and down
+vim.cmd [[
+  cnoremap <C-p> <Up>
+  cnoremap <C-n> <Down>
+]]
+
+-- Auto clear buffer
 autocmd({"BufEnter"}, {
   pattern = {"*.*"},
   callback = function()
@@ -15,24 +22,26 @@ autocmd({"BufEnter"}, {
   end
 })
 
--- Mapping <C-n>, <C-p> with up and down to get feature of up and down
-vim.cmd [[
-  cnoremap <C-p> <Up>
-  cnoremap <C-n> <Down>
-]]
-
 -- Mapping <C-p> <C-n> only for *.md filetype
 autocmd({"BufEnter"}, {
-  pattern = {"*.md"},
-  command = "nnoremap <buffer> <C-p> :exe '?^-' <Bar> norm 0W<CR>"
-})
-
-autocmd({"BufEnter"}, {
-  pattern = {"*.md"},
-  command = "nnoremap <buffer> <C-n> :exe '/^-' <Bar> norm 0W<CR>"
-})
-
-autocmd({"BufEnter"}, {
-  pattern = {"*.md"},
-  command = "nnoremap <buffer> <CR> :cd <C-r><C-a><CR>"
+  pattern = {".workspace.md"},
+  callback = function()
+    vim.keymap.set('n', '<C-p>', function()
+      vim.cmd "silent! ?^-"
+      vim.cmd "nohl"
+      vim.cmd "norm 0W"
+    end, {buffer = true})
+    vim.keymap.set('n', '<C-n>', function()
+      vim.cmd "silent! /^-"
+      vim.cmd "nohl"
+      vim.cmd "norm 0W"
+    end, {buffer = true})
+    vim.keymap.set('n', '<CR>', function()
+      local dir = vim.fn.expand('<cWORD>')
+      if vim.fn.isdirectory(dir) ~= 0 then
+        vim.cmd("cd " .. dir)
+        print(dir)
+      end
+    end, {buffer = true})
+  end
 })

@@ -12,3 +12,4 @@ opt.clipboard = ""
 opt.autoread = true
 opt.history = 999
 opt.relativenumber = true
+opt.swapfile = false

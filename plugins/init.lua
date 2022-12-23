@@ -62,7 +62,7 @@ return {
     override_options = overrides.blankline
   },
 
-  ["ealflm/nvindent"] = {keys = {"ai", "ii"}},
+  ["ealflm/nvindent"] = {},
 
   ["ealflm/vim-surround"] = {
     keys = {

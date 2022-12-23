@@ -51,12 +51,19 @@ M.vimrc = {
     ["<C-`>"] = {
       function()
         if require("custom.lib").should_hijack_current_buf() then
-          require("nvchad_ui.tabufline").close_buffer()
+          require("nvimbuffers").buf_close()
         end
 
         -- vim.cmd "e $MYVIMRC"
         vim.cmd "e /Users/ealflm/.config/nvim/lua/custom/init.lua"
         vim.cmd "cd %:h | cd `git rev-parse --show-toplevel`"
+      end, "open MYVIMRC"
+    },
+    ["<Leader>pk"] = {
+      function()
+        local dir = ".local/share/nvim/site/pack/packer/"
+        vim.cmd("cd " .. dir)
+        print(dir)
       end, "open MYVIMRC"
     }
   }
@@ -79,8 +86,7 @@ M.tabufline = {
 
     -- close buffer + hide terminal buffer
     ["<C-s>"] = {
-      function() require("nvchad_ui.tabufline").close_buffer() end,
-      "close buffer"
+      function() require("nvimbuffers").buf_close() end, "close buffer"
     },
 
     -- close all buffers but current
@@ -92,7 +98,7 @@ M.tabufline = {
     ["<C-S-a>"] = {
       function()
         require("nvimbuffers").only_buffer()
-        require("nvchad_ui.tabufline").close_buffer()
+        require("nvimbuffers").buf_close()
       end, "close buffer"
     }
 
