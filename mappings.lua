@@ -40,8 +40,14 @@ M.workspace = {
 
 M.git = {
   n = {
-    ["<Leader>cd"] = {
-      ":cd %:h | cd `git rev-parse --show-toplevel`<CR>", "cd to git root"
+    ["<C-S-C>"] = {
+      function()
+        local curdir = vim.fn.expand('%:h')
+        vim.cmd("cd " .. curdir)
+        local toplevel = vim.fn.expand('`git rev-parse --show-toplevel`')
+        vim.cmd("cd " .. toplevel)
+        print(toplevel)
+      end, "cd to git root"
     }
   }
 }
@@ -54,9 +60,13 @@ M.vimrc = {
           require("nvimbuffers").buf_close()
         end
 
-        -- vim.cmd "e $MYVIMRC"
         vim.cmd "e /Users/ealflm/.config/nvim/lua/custom/init.lua"
-        vim.cmd "cd %:h | cd `git rev-parse --show-toplevel`"
+
+        local curdir = vim.fn.expand('%:h')
+        vim.cmd("cd " .. curdir)
+        local toplevel = vim.fn.expand('`git rev-parse --show-toplevel`')
+        vim.cmd("cd " .. toplevel)
+        print(toplevel)
       end, "open MYVIMRC"
     },
     ["<Leader>pk"] = {
@@ -75,13 +85,11 @@ M.tabufline = {
   n = {
     -- cycle through buffers
     ["<C-]>"] = {
-      function() require("nvchad_ui.tabufline").tabuflineNext() end,
-      "goto next buffer"
+      function() require("nvimbuffers").buf_next() end, "goto next buffer"
     },
 
     ["<C-[>"] = {
-      function() require("nvchad_ui.tabufline").tabuflinePrev() end,
-      "goto prev buffer"
+      function() require("nvimbuffers").buf_prev() end, "goto prev buffer"
     },
 
     -- close buffer + hide terminal buffer
@@ -110,11 +118,11 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-tab>"] = {"<cmd> NvimTreeToggle <CR>", "toggle nvimtree"},
+    ["<C-tab>"] = {"<cmd>NvimTreeToggle<CR>", "toggle nvimtree"},
 
     -- focus
     ["<C-e>"] = {
-      "<cmd> NvimTreeFindFile <CR>", "jump to current file in nvimtree"
+      "<cmd>NvimTreeFindFile<CR>", "jump to current file in nvimtree"
     }
   }
 }
@@ -124,16 +132,20 @@ M.telescope = {
 
   n = {
     -- find
-    ["<C-space>"] = {"<cmd> Telescope find_files<CR>", "find files"},
-    ["<C-S-l>"] = {"<cmd> Telescope live_grep<CR>", "live grep"},
+    ["<C-space>"] = {"<cmd>Telescope find_files<CR>", "find files"},
+    ["<C-S-l>"] = {"<cmd>Telescope live_grep<CR>", "live grep"},
 
     -- git
-    ["<C-;>"] = {"<cmd> Telescope git_status<CR>", "git status"},
-    ["<Leader>sh"] = {"<cmd> Telescope git_stash<CR>", "git stash"},
-    ["<Leader>rh"] = {"<cmd> Telescope git_branches<CR>", "git branches"},
-    ["<C-S-j>"] = {":Telescope repo list<CR>", "open all repository in system"},
-    ["<Leader>dn"] = {":Telescope diagnostics<CR>", "open diagnostics"},
-    ["<Leader>rs"] = {":Telescope resume<CR>", "Resume last telescope command"}
+    ["<C-;>"] = {"<cmd>Telescope git_status<CR>", "git status"},
+    ["<Leader>sh"] = {"<cmd>Telescope git_stash<CR>", "git stash"},
+    ["<Leader>rh"] = {"<cmd>Telescope git_branches<CR>", "git branches"},
+    ["<C-S-j>"] = {
+      "<cmd>Telescope repo list<CR>", "open all repository in system"
+    },
+    ["<Leader>dn"] = {"<cmd>Telescope diagnostics<CR>", "open diagnostics"},
+    ["<Leader>rs"] = {
+      "<cmd>Telescope resume<CR>", "Resume last telescope command"
+    }
   }
 }
 

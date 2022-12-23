@@ -13,6 +13,11 @@ M.mason = {
 }
 
 M.nvimtree = {
+  filters = {
+    dotfiles = true,
+    exclude = {vim.fn.stdpath "config" .. "/lua/custom"},
+    custom = {".DS_Store", ".localized", ".workspace.md"}
+  },
   diagnostics = {
     enable = true,
     show_on_dirs = true,
