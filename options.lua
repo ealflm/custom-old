@@ -13,3 +13,4 @@ opt.autoread = true
 opt.history = 999
 opt.relativenumber = true
 opt.swapfile = false
+opt.guifont = {"JetBrainsMonoNL NF", ":h14"}
