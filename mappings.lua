@@ -145,7 +145,14 @@ M.telescope = {
     ["<Leader>dn"] = {"<cmd>Telescope diagnostics<CR>", "open diagnostics"},
     ["<Leader>rs"] = {
       "<cmd>Telescope resume<CR>", "Resume last telescope command"
-    }
+    },
+    ["<Leader>of"] = {
+      "<cmd>Telescope oldfiles<CR>", "Resume last telescope command"
+    },
+    ["<Leader>rg"] = {
+      "<cmd>Telescope registers<CR>", "Resume last telescope command"
+    },
+    ["<Leader>tl"] = {"<cmd>Telescope<CR>", "Resume last telescope command"}
   }
 }
 
