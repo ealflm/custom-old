@@ -222,7 +222,9 @@ M.dap = {
     ["<F5>"] = {
       function()
         vim.schedule(function()
-          require'dapui'.open({layout = 2})
+          if (vim.g.is_dap_run == false) then
+            require'dapui'.open({layout = 2})
+          end
           require("dap").continue()
         end)
       end,

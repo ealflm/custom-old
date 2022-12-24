@@ -70,12 +70,17 @@ autocmd({"BufWritePost"}, {
   command = "silent lua require('dap').hot_reload()"
 })
 
+vim.g.is_dap_run = false
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
   -- require'dapui'.open({layout = 2})
+  vim.g.is_dap_run = true
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
   require'dapui'.close()
+  vim.g.is_dap_run = false
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
   require'dapui'.close()
+  vim.g.is_dap_run = false
 end
