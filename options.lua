@@ -14,3 +14,6 @@ opt.history = 999
 opt.relativenumber = true
 opt.swapfile = false
 opt.guifont = {"JetBrainsMonoNL NF", ":h14"}
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false

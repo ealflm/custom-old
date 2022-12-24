@@ -89,6 +89,16 @@ M.nvterm = {
 }
 
 M.telescope = {
+  defaults = {
+    mappings = {
+      i = {
+        ["<CR>"] = function()
+          vim.cmd [[:stopinsert]]
+          vim.cmd [[call feedkeys("\<CR>")]]
+        end
+      }
+    }
+  },
   extensions = {
     repo = {
       list = {
