@@ -6,7 +6,7 @@ if not present then return end
 dap.adapters.dart = {
   type = "executable",
   command = "node",
-  args = {os.getenv('HOME') .. "/Dart-Code/out/dist/debug.js", "flutter"}
+  args = {os.getenv('HOME') .. "/dev/Dart-Code/out/dist/debug.js", "flutter"}
 }
 dap.configurations.dart = {
   {
