@@ -54,7 +54,9 @@ M.nvimtree = {
     adaptive_size = true,
     mappings = {
       list = {
-        {key = "<C-e>", action = nil}, {key = "<M-e>", action = "edit_in_place"}
+        {key = "<C-e>", action = nil}, {key = "-", action = nil},
+        {key = "<M-e>", action = "edit_in_place"},
+        {key = "<C-[>", action = "dir_up"}
       }
     }
   },
