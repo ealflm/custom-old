@@ -5,6 +5,7 @@ return {
   -- Override plugin definition options
 
   ["neovim/nvim-lspconfig"] = {
+    commit = "38d4e6ffbdb693910807b0181de9606e4b4b835a",
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"

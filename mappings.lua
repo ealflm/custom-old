@@ -71,7 +71,7 @@ M.vimrc = {
     },
     ["<Leader>pk"] = {
       function()
-        local dir = ".local/share/nvim/site/pack/packer/"
+        local dir = "~/.local/share/nvim/site/pack/packer/"
         vim.cmd("cd " .. dir)
         print(dir)
       end, "open MYVIMRC"
