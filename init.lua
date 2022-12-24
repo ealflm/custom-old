@@ -2,10 +2,14 @@ require "custom.options"
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({"BufWritePost"},
-        {pattern = {"*.dart", "*.lua"}, command = "FormatWrite"})
+vim.g.format_on_save = true
 
-autocmd({"FocusGained"}, {pattern = {"*.*"}, command = "checktime"})
+autocmd({"BufWritePost"}, {
+  pattern = {"*.dart", "*.lua"},
+  callback = function()
+    if (vim.g.format_on_save) then vim.cmd("FormatWrite") end
+  end
+})
 
 -- Mapping <C-n>, <C-p> with up and down to get feature of up and down
 vim.cmd [[
