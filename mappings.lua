@@ -229,6 +229,7 @@ M.dap = {
     ["<F5>"] = {
       function()
         vim.schedule(function()
+          vim.cmd("NvimTreeClose")
           if (vim.g.dap_state == 0) then
             vim.g.dap_state = 1
             require'dapui'.open({layout = 2})
@@ -237,6 +238,18 @@ M.dap = {
         end)
       end,
       "Dap: continue",
+      opts = {expr = true}
+    },
+
+    -- Terminate app
+    ["<S-F5>"] = {
+      function()
+        vim.schedule(function()
+          vim.g.is_dap_run = 0
+          require("dap").terminate()
+        end)
+      end,
+      "Dap: terminate",
       opts = {expr = true}
     },
 
@@ -276,6 +289,18 @@ M.dap = {
       opts = {expr = true}
     },
 
+    -- Restart
+    ["<S-F6>"] = {
+      function()
+        vim.schedule(function()
+          print "Restart"
+          require("dap").restart()
+        end)
+      end,
+      "Dap: restart",
+      opts = {expr = true}
+    },
+
     -- Hot restart
     ["<F6>"] = {
       function()
@@ -309,13 +334,6 @@ M.dap = {
         end)
       end,
       "Dap: set breakpoint",
-      opts = {expr = true}
-    },
-
-    -- Terminate app
-    ["<S-F5>"] = {
-      function() vim.schedule(function() require("dap").terminate() end) end,
-      "Dap: terminate",
       opts = {expr = true}
     },
 
