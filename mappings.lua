@@ -94,17 +94,24 @@ M.tabufline = {
 
     -- close buffer + hide terminal buffer
     ["<C-s>"] = {
-      function() require("nvimbuffers").buf_close() end, "close buffer"
+      function()
+        require("nvimbuffers").focus_active_buffers()
+        require("nvimbuffers").buf_close()
+      end, "close buffer"
     },
 
     -- close all buffers but current
     ["<C-S-s>"] = {
-      function() require("nvimbuffers").only_buffer() end, "close buffer"
+      function()
+        require("nvimbuffers").focus_active_buffers()
+        require("nvimbuffers").only_buffer()
+      end, "close buffer"
     },
 
     -- close all buffers
     ["<C-S-a>"] = {
       function()
+        require("nvimbuffers").focus_active_buffers()
         require("nvimbuffers").only_buffer()
         require("nvimbuffers").buf_close()
       end, "close buffer"
