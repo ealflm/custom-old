@@ -20,7 +20,7 @@ return {
   ["williamboman/mason.nvim"] = {override_options = overrides.mason},
 
   ["kyazdani42/nvim-tree.lua"] = {
-    cmd = {"NvimTreeToggle", "NvimTreeFindFile"},
+    cmd = {"NvimTreeToggle", "NvimTreeFindFile", "NvimTreeClose"},
     override_options = overrides.nvimtree
   },
 
