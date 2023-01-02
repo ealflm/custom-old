@@ -143,12 +143,14 @@ M.telescope = {
     ["<C-S-l>"] = {"<cmd>Telescope live_grep<CR>", "live grep"},
 
     -- git
-    ["<C-;>"] = {"<cmd>Telescope git_status<CR>", "git status"},
-    ["<Leader>sh"] = {"<cmd>Telescope git_stash<CR>", "git stash"},
-    ["<Leader>rh"] = {"<cmd>Telescope git_branches<CR>", "git branches"},
+    ["<C-;>"] = {"<cmd>silent! Telescope git_status<CR>", "git status"},
+    ["<Leader>sh"] = {"<cmd>silent! Telescope git_stash<CR>", "git stash"},
+    ["<Leader>rh"] = {"<cmd>silent! Telescope git_branches<CR>", "git branches"},
+
     ["<C-S-j>"] = {
       "<cmd>Telescope repo list<CR>", "open all repository in system"
     },
+
     ["<Leader>dn"] = {"<cmd>Telescope diagnostics<CR>", "open diagnostics"},
     ["<Leader>rs"] = {
       "<cmd>Telescope resume<CR>", "Resume last telescope command"

@@ -7,7 +7,7 @@ vim.g.format_on_save = true
 autocmd({"BufWritePost"}, {
   pattern = {"*.dart", "*.lua"},
   callback = function()
-    if (vim.g.format_on_save) then vim.cmd("FormatWrite") end
+    if (vim.g.format_on_save) then vim.cmd("silent! FormatWrite") end
   end
 })
 
