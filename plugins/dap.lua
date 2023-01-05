@@ -67,7 +67,7 @@ vim.fn.sign_define('DapStopped', {
 local autocmd = vim.api.nvim_create_autocmd
 autocmd({"BufWritePost"}, {
   pattern = {"*.dart"},
-  command = "silent lua require('dap').hot_reload()"
+  command = "silent! lua require('dap').hot_reload()"
 })
 
 -- 0 not running
